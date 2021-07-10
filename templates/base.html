@@ -14,6 +14,8 @@
 
     {% block corecss %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
@@ -28,14 +30,14 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Patch Shop {% block extra_title %} {% endblock %}</title>
+    <title>Kalopsia Lens {% block extra_title %} {% endblock %}</title>
 
   </head>
   <body>
     <header class="container-fluid fixed-top">
         <div class="row">
             <div class="col-12 col-lg-4 my-auto py-1 py-l-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link"> Patch Shop </a>
+                <a href="{% url 'home' %}" class="nav-link main-logo-link"> Kalopsia Lens </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-l-0">
                 <form class="d-flex">  <!-- search form taken from bootstrap --> 
@@ -45,8 +47,24 @@
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-l-0">
               <button type="button" class="btn btn-warning btn-menu"><i class="fas fa-user-alt"></i>
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <a href=""></a> <!-- Page with product management option-->
+                    {% endif %}
+                    <a href=""></a> <!-- Page with User Profile and the option to log out -->
+                {% else %}
+                    <a href=""></a> <!-- Page with option to sign up or log in-->
+                {% endif %}
               </button>
-              <button type="button" class="btn btn-warning btn-menu"><i class="fas fa-shopping-bag"></i></button>
+              <button type="button" class="btn btn-warning btn-menu"><i class="fas fa-shopping-bag"></i>
+                <p class="my-0">
+                    {% if grand_total %}
+                        ${{ grand_total|floatformat:2 }}
+                    {% else %}
+                        $0.00
+                    {% endif %}
+                </p>
+              </button>
               <button type="button" class="btn btn-warning btn-menu"><i class="fas fa-heart"></i>
               </button>
 
