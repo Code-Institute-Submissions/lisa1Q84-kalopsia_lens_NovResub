@@ -22,9 +22,10 @@
     {% endblock %}
 
     {% block corejs %}
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/99f2f640c0.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -35,13 +36,13 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-        <div id="top-nav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
                   <h2 class="logo-font text-black my-0"> Kalopsia Productions </h2></a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="" class="d-flex">  <!-- search form taken from bootstrap --> 
+                <form method="GET" action="">  <!-- search form taken from bootstrap --> 
                     <input class="form-control me-2" type="text" name="q" placeholder="Search" aria-label="Search">
                     <button class="btn btn-black" type="submit">Search</button>
                 </form>
@@ -49,54 +50,52 @@
             
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
 
-              <ul class="list-inline-item list-unstyled text-center text-lg-right my-0">
+              <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                 <li class="list-inline-item">
                     {% if request.user.is_authenticated %} 
-                        <a class="text-black nav-item nav-link" href="{% url 'profile'}">
+                        <a class="text-black nav-link" href="{% url 'profile'}">
                           <i class="fas fa-user fa-lg"></i>
-                          <p>Account</p>
+                          <p>My Account</p>
                         </a>
                     {% else %}
-                      <a class="text-black nav-item nav-link" href="{% url 'account_signup' %}">
+                      <a class="text-black nav-link" href="{% url 'account_signup' %}">
                         <i class="fas fa-user fa-lg"></i>
-                        <p>Account</p>
+                        <p>Signup/Login</p>
                       </a>
                     {% endif %}
                 </li>
                 <li class="list-inline-item">
-                    <a class="text-black nav-item nav-link">
-                      <div class="text-center">
-                          <div>
+                    <a class="text-black nav-link">
                             <i class="fas fa-heart fa-lg"></i>
                             <p>Favorites</p>
-                          </div>
-                      </div>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a class="text-black nav-item nav-link" href="#">
-                      <div class="text-center">
-                          <div>
+                    <a class="text-black nav-link" href="#">
                             <i class="fas fa-shopping-bag fa-lg"></i>
                             <p>Bag</p>
-                          </div>
-                      </div>
                     </a>
                 </li>
                 {% if request.user.is_authenticated %}
                 <li class="list-inline-item">
-                  <a class="text-black nav-link nav-item" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="text-center">
-                        <div>
-                          <i class="fas fa-sign-out-alt fa-lg"></i>
-                          <p>Logout</p>
-                        </div>
-                    </div>
+                  <a class="text-black nav-link" href="#">
+                    <i class="fas fa-sign-out-alt fa-lg"></i>
+                    <p>Logout</p>
                   </a>
                 </li>
                 {% endif %}
               </ul>
             </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0"></div>
+        </div>
+        <div class="row bg-white w-100">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/mobile_top_header.html' %}
+                {% include 'includes/main_nav.html' %}
+            </nav>
         </div>
     </header>
 
@@ -111,6 +110,7 @@
     {% endblock %}
 
     {% block postloadjs %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     {% endblock %}
 
   </body>
