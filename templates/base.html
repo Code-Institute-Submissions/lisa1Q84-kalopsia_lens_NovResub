@@ -43,8 +43,12 @@
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="">  <!-- search form taken from bootstrap --> 
-                    <input class="form-control me-2" type="text" name="q" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-black" type="submit">Search</button>
+                  <div class="input-group w-100">
+                      <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
+                      <div class="input-group-append">
+                        <button class="form-control btn btn-black" type="submit">Search</button>
+                      </div>
+                  </div>
                 </form>
             </div>
             
