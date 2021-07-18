@@ -15,6 +15,7 @@
         <div class="row">
             <div class="col text-center">
                 <h2 class="bg-white p-1"> Services</h2>
+                
                 <hr class="w-50 mb-1">
             </div>
         </div>
@@ -34,6 +35,13 @@
                             </div>
                             <div class="product-details col-12 col-md-6">
                                     <h2 class="mb-0 text-uppercase font-weight-bold">{{ product.name }}</h2>
+                                    {% if product.category %}
+                                    <p class="small mt-1 mb-0">
+                                        <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                            <i class="fas fa-film"></i>{{ product.category.friendly_name }}
+                                        </a>
+                                    </p>
+                                    {% endif %}
                                     <p> {{ product.description }}</p>
                                     <p>${{ product.price }}</p>
                                     {% if product.rating %}

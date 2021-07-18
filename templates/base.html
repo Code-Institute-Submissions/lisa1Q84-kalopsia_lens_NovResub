@@ -40,10 +40,10 @@
         <div id="topnav" class="row pt-lg-1 d-none d-lg-flex">
             <div class="col-12 col-md-3 col-lg-3 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                  <h2 class="logo-font text-black my-0"> Kalopsia Productions </h2></a>
+                  <h2 class="logo-font text-black my-0"> Kalopsia  <i class="fas fa-eye"></i> Productions </h2></a>
             </div>
             <div class="col-12 col-md-4 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="">  <!-- search form taken from bootstrap --> 
+                <form method="GET" action="{% url 'products' %}">  <!-- search form taken from bootstrap --> 
                   <div class="input-group w-100">
                       <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
                       <div class="input-group-append">
@@ -58,32 +58,32 @@
               <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                 <li class="list-inline-item">
                     {% if request.user.is_authenticated %} 
-                        <a class="text-black nav-link" href="{% url 'profile'}">
+                        <a class="text-center text-black nav-link" href="{% url 'profile'}">
                           <i class="fas fa-user fa-lg"></i>
                           <p>My Account</p>
                         </a>
                     {% else %}
                       <a class="text-black nav-link" href="{% url 'account_signup' %}">
-                        <i class="fas fa-user fa-lg"></i>
+                        <i class="fas fa-user fa-lg text-center"></i>
                         <p>Signup/Login</p>
                       </a>
                     {% endif %}
                 </li>
                 <li class="list-inline-item">
-                    <a class="text-black nav-link">
+                    <a class="text-black nav-link text-center">
                             <i class="fas fa-heart fa-lg"></i>
                             <p>Favorites</p>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a class="text-black nav-link" href="#">
+                    <a class="text-black nav-link text-center" href="#">
                             <i class="fas fa-shopping-bag fa-lg"></i>
                             <p>Bag</p>
                     </a>
                 </li>
                 {% if request.user.is_authenticated %}
                 <li class="list-inline-item">
-                  <a class="text-black nav-link" href="#">
+                  <a class="text-black nav-link text-center" href="#">
                     <i class="fas fa-sign-out-alt fa-lg"></i>
                     <p>Logout</p>
                   </a>
