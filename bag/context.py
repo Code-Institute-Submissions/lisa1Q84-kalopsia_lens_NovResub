@@ -9,10 +9,10 @@ def bag_contents(request):
 
     grand_total = total
     context = {
-        bag_items,
-        total,
-        product_count,
-        grand_total,
+        'bag_items': bag_items,
+        'total': total,
+        'product_count': product_count,
+        'grand_total': grand_total,
     }
 
     return context
