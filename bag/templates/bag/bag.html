@@ -19,20 +19,58 @@
 
     <div class="row">
         <div class="col">
-            <h2> Shopping Bag</h2>
+            <h2 class="text-center bg-dark p-1 font-weight-bold text-white"> Shopping Bag</h2>
         </div>
     </div>
     <div class="row">
         <div class="col">
             {% if bag_items %}
             <div class="table-responsive rounded">
+                <table class="table table table-sm bg-white">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Product Info</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in bag_items %}
+                      <tr>
+                        <th><img class="img-fluid rounded" src="{{ item.product.image.url }}"></th>
+                        <td><p class="my-0"><strong>{{ item.product.name }}</strong></p></td>
+                        <td> <p class="my-0">${{ item.product.price }}</p></td>
+                        <td> <p class="my-0">{{ item.quantity }}</p></td>
+                        <td> <p class="my-0">${{ grand_total|floatformat:2 }}</p></td>
+                      </tr>
+                    {% endfor %}
 
+                        <tr>
+                            <td colspan="5" class="text-right">
+                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="text-uppercase">Keep Shopping</span>
+                                </a>
+                                <a href="" class="btn btn-black rounded-0 btn-lg">
+                                    <span class="text-uppercase">Secure Checkout</span>
+                                    <span class="icon">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             {% else %}
             <p> No items in your bag yet</p>
             <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
                 <span class="icon">
-                    <i class="fas fa-chevron-left"> Shop Now</i>
+                    <i class="fas fa-chevron-left">Start Shopping</i>
                 </span>
             </a>
             {% endif %}
