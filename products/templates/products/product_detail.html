@@ -55,6 +55,7 @@
                                             <a class="text-danger" href="">Delete</a>
                                         </small>
                                     {% endif %}
+                                    <!-- Add to bag form -->
                                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                         {% csrf_token %}
                                         <div class="form-row">
@@ -66,6 +67,25 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            {% if product.variation_set.all %}
+                                            {% if product.variation_set.types %}
+                                                <select class="form-control" name="type">
+                                                {% for item in product.variation_set.types %}
+                                                    <option value="{{ item.name|lower }}">{{ item.name|capfirst }}
+                                                    </option>
+                                                {% endfor %}
+                                                </select>
+                                            {% endif %}
+                                            {% if product.variation_set.durations %}
+                                                <select class="form-control" name="duration">
+                                            {% for item in product.variation_set.durations %}
+                                                <option value="{{ item.name|lower }}">{{ item.name|capfirst }}
+                                                </option>
+                                            {% endfor %}
+                                                </select>
+                                            {% endif %}
+                                            {% endif %}
                 
                                             <div class="col-12">
                                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
@@ -74,6 +94,7 @@
                                                     </span>
                                                     <span class="text-uppercase">Keep Shopping</span>
                                                 </a>
+                                                <!-- Add to bag button -->
                                                 <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
                                             </div>
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">

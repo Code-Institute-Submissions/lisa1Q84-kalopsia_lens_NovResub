@@ -31,6 +31,7 @@
                       <tr>
                         <th scope="col"></th>
                         <th scope="col">Product Info</th>
+                        <th scope="col"></th>
                         <th scope="col">Price</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Total</th>
@@ -41,6 +42,11 @@
                       <tr>
                         <th><img class="img-fluid rounded" src="{{ item.product.image.url }}"></th>
                         <td><p class="my-0"><strong>{{ item.product.name }}</strong></p></td>
+                        {% if product.variation.all %}
+                        {% for variation in product.variation.all %}
+                        <td>{{ variation.name|capfirst }}</td>
+                        {% endfor %}
+                        {% endif %}
                         <td> <p class="my-0">${{ item.product.price }}</p></td>
                         <td> <p class="my-0">{{ item.quantity }}</p></td>
                         <td> <p class="my-0">${{ grand_total|floatformat:2 }}</p></td>
