@@ -14,42 +14,30 @@
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="photo-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Photography
+                Personal 
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="photo-link">
-                <a href="" class="dropdown-item">Wedding</a>
-                <a href="" class="dropdown-item">Portrait</a>
-                <a href="" class="dropdown-item">Pets</a>
-                <a href="" class="dropdown-item">Business Promotion</a>
-                <a href="" class="dropdown-item">All Photography Services</a>
+                <a href="{% url 'products' %}?category=weddings" class="dropdown-item">Wedding</a>
+                <a href="{% url 'products' %}?category=portraits" class="dropdown-item">Portrait</a>
+                <a href="{% url 'products' %}?category=weddings,portraits" class="dropdown-item">All Personal Services</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="video-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Videography
+                Business
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="video-link">
-                <a href="" class="dropdown-item">Wedding</a>
-                <a href="" class="dropdown-item">Business Promotion</a>
-                <a href="" class="dropdown-item">Events</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="subscription-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Business Subscriptions
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="subscription-link">
-                <a href="" class="dropdown-item">Social Media Content</a>
-                <a href="" class="dropdown-item">Promotional Shoot</a>
-                <a href="" class="dropdown-item">Product Photography</a>
+                <a href="" class="dropdown-item"></a>
+                <a href="{% url 'products' %}?category=promotional" class="dropdown-item">Business Promotion</a>
+                <a href="{% url 'products' %}?category=corporate" class="dropdown-item">Corporate</a>
+                <a href="{% url 'products' %}?category=corporate,promotional" class="dropdown-item">All Business Services</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black" href="#" id="prints-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Prints
+                Works
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="prints-link">
                 <a href="" class="dropdown-item">Portraits</a>
