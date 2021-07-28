@@ -22,14 +22,12 @@ def add_to_bag(request, item_id):
 
     if variation:
         if item_id in list(bag.keys()):
-            if variation:
-                print(variation)
-                print(variation.quantity)
-                bag[item_id]['variation'] += quantity
+            if variation in bag[item_id]['variation_dict'].keys():
+                bag[item_id]['variation_dict'][variation] += quantity
             else:
-                bag[item_id]['variation'] = quantity
+                bag[item_id]['variation_dict'][variation] = quantity
         else:
-            bag[item_id] = {'variation': {variation: quantity}}
+            bag[item_id] = {'variation_dict': {variation: quantity}}
     else:
 
         if item_id in list(bag.keys()):

@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product, Variation
+from decimal import Decimal
+
 
 
 def bag_contents(request):
@@ -10,20 +12,27 @@ def bag_contents(request):
     product_count = 0
     bag = request.session.get('bag', {})
 
-    for item_id, quantity in bag.items():
-        product = get_object_or_404(Product, pk=item_id)
-        variation = get_object_or_404(Variation, pk=item_id)
-        print(variation)
-        total += quantity * variation.price
-        print(total)
-        product_count += quantity
-        bag_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'product': product,
-            'variation': variation,
-        })
-        print(bag_items)
+    for item_id, item_data in bag.items():
+        if isinstance(item_data, str):
+            product = get_object_or_404(Product, pk=item_id)
+            total += item_data * product.price
+            product_count += item_data
+            bag_items.append({
+                'item_id': item_id,
+                'quantity': item_data,
+                'product': product,
+            })
+        else:
+            product = get_object_or_404(Product, pk=item_id)
+            for variation, quantity in item_data['variation_dict'].items():
+                total += quantity * product.price
+                product_count += quantity
+                bag_items.append({
+                    'item_id': item_id,
+                    'quantity': item_data,
+                    'product': product,
+                    'variation': variation,
+                })
 
     grand_total = total
     context = {
