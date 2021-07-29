@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 """a view to return the shopping bag page"""
 
@@ -18,6 +18,8 @@ def add_to_bag(request, item_id):
 
     if 'variation' in request.POST:
         variation = request.POST['variation']
+        redirect_url = request.POST.get('redirect_url')
+
     bag = request.session.get('bag', {})
 
     if variation:
@@ -36,4 +38,4 @@ def add_to_bag(request, item_id):
             bag[item_id] = quantity
 
     request.session['bag'] = bag
-    return render(request, 'bag/bag.html')
+    return redirect(redirect_url)
