@@ -20,6 +20,12 @@ html {
     height: 100%;
 }
 
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 
 /* Frame from https://codepen.io/Snugug/pen/bzRwyw */
 

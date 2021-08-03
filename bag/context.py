@@ -4,7 +4,6 @@ from products.models import Product, Variation
 from decimal import Decimal
 
 
-
 def bag_contents(request):
 
     bag_items = []
