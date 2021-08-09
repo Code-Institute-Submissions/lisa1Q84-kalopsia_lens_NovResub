@@ -87,7 +87,7 @@
                                             {% if product.variation_set.all %}
                                                 <select class="form-control" name="variation">
                                                 {% for item in product.variation_set.all %}
-                                                    <option value="{{ item.name|lower }}">{{ item.name|capfirst }}
+                                                    <option value="{{ item.name|lower }}">{{ item.name|capfirst }} {{ item.price }}
                                                     </option>
                                                 {% endfor %}
                                                 </select>

@@ -59,6 +59,7 @@ def add_to_bag(request, item_id):
 
 
 def update_bag(request, item_id):
+    print(request.POST)
     quantity = int(request.POST.get('quantity'))
     variation = request.POST.get('variation')
     product = get_object_or_404(Product, pk=item_id)
@@ -99,7 +100,6 @@ def update_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
-
     product = get_object_or_404(Product, pk=item_id)
 
     try:
@@ -108,17 +108,15 @@ def remove_from_bag(request, item_id):
         bag = request.session.get('bag', {})
 
         if variation:
-            del bag[item_id]['variation.dict'][variation]
+            del bag[item_id]['variation_dict']
             messages.success(request, f'removed {variation.upper()}{product.name} from your bag!')
-            if not bag[item_id]['variation.dict']:
-                bag.pop(item_id)
-                messages.success(request, f'removed {variation.upper()}{product.name} from your bag!')
+            bag.pop(item_id)
+            messages.success(request, f'removed {variation.upper()}{product.name} from your bag!')
         else:
             bag.pop(item_id)
             messages.success(
                 request, f'removed {product.name} from your bag!')
 
-        request.session['bag'] = bag
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, f'error removing item: {e}')

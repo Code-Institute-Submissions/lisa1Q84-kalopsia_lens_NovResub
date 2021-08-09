@@ -10,6 +10,7 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+    print(bag)
 
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
@@ -24,14 +25,17 @@ def bag_contents(request):
         else:
             product = get_object_or_404(Product, pk=item_id)
             for variation, quantity in item_data['variation_dict'].items():
-                total += quantity * price
+                print(variation)
+                variation_object = Variation.objects.get(name__icontains=variation)
+                total += quantity * variation_object.price
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
-                    'variation': variation,
+                    'variation': variation_object,
                 })
+
 
     grand_total = total
     context = {

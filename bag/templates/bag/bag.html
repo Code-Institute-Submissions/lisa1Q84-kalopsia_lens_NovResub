@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block content %}
-   
+   {{ bag_items }}
 <div class="overlay"></div>
 <div class="container bg-white">
 
@@ -45,7 +45,7 @@
                         <td class="p-3 w-25"><img class="img-fluid rounded" src="{{ item.product.image.url }}"></td>
                         <td class="p-3 w-30">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0">${{ item.product.price }}</p>
+                            <p class="my-0">${{ item.variation.price }}</p>
                             <p class="my-0">{{ item.variation }}</p>
                         </td>
                         <td class="p-3 w-25">
@@ -72,8 +72,8 @@
                                                     <i class="fas fa-plus fa-sm"></i>
                                                 </span>
                                             </button>
-                                            {% if item.variation_set.all %}
-                                            <input type="hidden" name="variation" value="{{ item.variation }}">
+                                            {% if item.variation %}
+                                            <input type="hidden" name="variation" value="{{ item.variation.name|lower }}">
                                             {% endif %}
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                             <a class="update-link text-info"><small>Update</small></a>
                             <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-variation="{{ item.variation }}"><small>Remove</small></a>
                         </td> 
-                        <td> <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p></td>
+                        <td> <p class="my-0">${{ item.variation.price | calc_subtotal:item.quantity }}</p></td>
                     </tr> 
                 
                     {% endfor %}
