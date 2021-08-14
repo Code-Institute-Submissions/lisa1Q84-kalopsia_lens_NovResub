@@ -109,7 +109,6 @@ def remove_from_bag(request, item_id):
 
         if variation:
             del bag[item_id]['variation_dict']
-            messages.success(request, f'removed {variation.upper()}{product.name} from your bag!')
             bag.pop(item_id)
             messages.success(request, f'removed {variation.upper()}{product.name} from your bag!')
         else:
