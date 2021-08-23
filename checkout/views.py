@@ -4,7 +4,7 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-from products.models import Product
+from products.models import Product, Variation
 from bag.context import bag_contents
 
 import stripe
@@ -37,6 +37,7 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
+
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -53,7 +54,7 @@ def checkout(request):
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                variation=variation,
+                                variation=Variation.objects.get(name__icontains=variation),
                             )
                             order_line_item.save()
                 except Product.DoesNotExist:
@@ -64,6 +65,8 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_bag'))
 
+            order.order_total = sum(order.lineitems.values_list('lineitem_total', flat=True))
+            order.save()
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
