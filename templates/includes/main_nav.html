@@ -6,7 +6,6 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-services-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                <a href="{% url 'products' %}?sort=rating&direction=dsc" class="dropdown-item ">By Rating</a>
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Services</a>
             </div>
@@ -17,9 +16,9 @@
                 Personal 
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="photo-link">
-                <a href="{% url 'products' %}?category=weddings" class="dropdown-item">Wedding</a>
-                <a href="{% url 'products' %}?category=portraits" class="dropdown-item">Portrait</a>
-                <a href="{% url 'products' %}?category=weddings,portraits" class="dropdown-item">All Personal Services</a>
+                <a href="{% url 'products' %}?category=weddingphotoshoot" class="dropdown-item">Wedding</a>
+                <a href="{% url 'products' %}?category=portraitphotoshoot" class="dropdown-item">Portrait</a>
+                <a href="{% url 'products' %}?category=weddingphotoshoot,portraitphotoshoot" class="dropdown-item">All Personal Services</a>
             </div>
         </li>
 
@@ -29,9 +28,7 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="video-link">
                 <a href="" class="dropdown-item"></a>
-                <a href="{% url 'products' %}?category=promotional" class="dropdown-item">Business Promotion</a>
-                <a href="{% url 'products' %}?category=corporate" class="dropdown-item">Corporate</a>
-                <a href="{% url 'products' %}?category=corporate,promotional" class="dropdown-item">All Business Services</a>
+                <a href="{% url 'products' %}?category=promotionalshoot" class="dropdown-item">Business Promotion</a>
             </div>
         </li>
 
