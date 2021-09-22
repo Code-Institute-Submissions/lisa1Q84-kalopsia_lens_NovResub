@@ -36,7 +36,6 @@ def bag_contents(request):
                     'variation': variation_object,
                 })
 
-
     grand_total = total
     context = {
         'bag_items': bag_items,
