@@ -41,21 +41,28 @@
                                     {% endif %}
                                     <p> {{ product.description }}</p>
                                     <p>${{ product.price }}</p>
-                                    {% if product.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }}</small>
-                                    {% else %}
-                                        <p> No Reviews Yet</p>
-                                    {% endif %}
                                     {% if request.user.is_superuser %}
                                         <small class="ml-3">
-                                            <a href="">Edit</a> | 
-                                            <a class="text-danger" href="">Delete</a>
+                                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                                         </small>
                                     {% endif %}
                                     <!-- Add to bag form -->
                                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                         {% csrf_token %}
                                         <div class="form-row">
+                                            {% with product.has_variation as v %}
+                                            {% if v %}
+                                                <div class="col-12">
+                                                    <p><strong> Would you like a dedication from the author?</strong></p>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                        <label class="form-check-label" for="defaultCheck1">
+                                                          Yes, please!
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
                                             <div class="col-12">
                                                 <p class="mt-3"><strong>Quantity:</strong></p>
                                                 <div class="form-group w-50">
@@ -83,16 +90,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            {% if product.variation_set.all %}
-                                                <select class="form-control" name="variation">
-                                                {% for item in product.variation_set.all %}
-                                                    <option value="{{ item.name|lower }}">{{ item.name|capfirst }} {{ item.price }}
-                                                    </option>
-                                                {% endfor %}
-                                                </select>
-                                            {% endif %}
-
                                             <div class="col-12">
                                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
                                                     <span class="icon">
@@ -104,6 +101,7 @@
                                                 <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
                                             </div>
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            {% endwith %}
                                         </div>
                                     </form>
                             </div>

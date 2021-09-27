@@ -18,11 +18,11 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
-    variation = request.POST.get('variation')
+    variation = None
     redirect_url = request.POST.get('redirect_url')
 
-    if 'variation' in request.POST:
-        variation = request.POST['variation']
+    if 'product_variation' in request.POST:
+        variation = request.POST['product_variation']
 
     bag = request.session.get('bag', {})
 
@@ -59,12 +59,11 @@ def add_to_bag(request, item_id):
 
 
 def update_bag(request, item_id):
-    print(request.POST)
-    quantity = int(request.POST.get('quantity'))
-    variation = request.POST.get('variation')
-    product = get_object_or_404(Product, pk=item_id)
+    """Adjust the quantity of the specified product to the specified amount"""
 
-    bag = request.session.get('bag', {})
+    product = get_object_or_404(Product, pk=item_id)
+    quantity = int(request.POST.get('quantity'))
+    variation = None
 
     if 'variation' in request.POST:
         variation = request.POST['variation']
@@ -96,13 +95,12 @@ def update_bag(request, item_id):
     return redirect(reverse('view_bag'))
 
 
-"""a view to REMOVE an item in the shopping bag"""
-
-
 def remove_from_bag(request, item_id):
-    product = get_object_or_404(Product, pk=item_id)
+    """a view to REMOVE an item in the shopping bag"""
 
     try:
+        product = get_object_or_404(Product, pk=item_id)
+        variation = None
         if 'variation' in request.POST:
             variation = request.POST['variation']
         bag = request.session.get('bag', {})

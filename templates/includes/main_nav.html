@@ -2,45 +2,50 @@
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-services-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All Services
+                All Books
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-services-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Services</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All Books</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="photo-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Personal 
+                Crime 
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="photo-link">
-                <a href="{% url 'products' %}?category=weddingphotoshoot" class="dropdown-item">Wedding</a>
-                <a href="{% url 'products' %}?category=portraitphotoshoot" class="dropdown-item">Portrait</a>
-                <a href="{% url 'products' %}?category=weddingphotoshoot,portraitphotoshoot" class="dropdown-item">All Personal Services</a>
+                <a href="{% url 'products' %}?category=glueck" class="dropdown-item">Martin Glück</a>
+                <a href="{% url 'products' %}?category=annamarx" class="dropdown-item">Anna Marx</a>
+                <a href="{% url 'products' %}?category=crimeshortstories" class="dropdown-item">Crime Short Stories</a>
+                <a href="{% url 'products' %}?category=crimeshortstories,glueck,annamarx" class="dropdown-item">All Crime Books & Audiobooks</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="video-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Business
+                Novels
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="video-link">
                 <a href="" class="dropdown-item"></a>
-                <a href="{% url 'products' %}?category=promotionalshoot" class="dropdown-item">Business Promotion</a>
+                <a href="{% url 'products' %}?category=novels" class="dropdown-item">Novels</a>
+                <div class="dropdown-menu border-0" aria-labelledby="video-link">
+                    <a href="" class="dropdown-item"></a>
+                    <a href="{% url 'products' %}?category=shortstories" class="dropdown-item">Short Stories</a>
+                </div>
             </div>
         </li>
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black" href="#" id="prints-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Works
+                About
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="prints-link">
-                <a href="" class="dropdown-item">Portraits</a>
-                <a href="" class="dropdown-item">Nature</a>
-                <a href="" class="dropdown-item">Urban</a>
-                <a href="" class="dropdown-item">Art</a>
+                <a href="" class="dropdown-item">Biography</a>
+                <a href="" class="dropdown-item">Bibliography</a>
+                <a href="" class="dropdown-item">Press</a>
+                <a href="" class="dropdown-item">Contact</a>
             </div>
         </li>
     </ul>

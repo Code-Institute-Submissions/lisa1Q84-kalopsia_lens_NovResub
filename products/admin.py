@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, Variation
+from .models import Product, Category
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -8,6 +8,7 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'category',
         'image',
+        'rating',
     )
 
     ordering = ('sku',)
@@ -25,4 +26,3 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Variation)

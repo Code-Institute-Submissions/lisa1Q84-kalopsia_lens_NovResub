@@ -6,7 +6,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 
-from products.models import Product, Variation
+from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.context import bag_contents
@@ -78,7 +78,7 @@ def checkout(request):
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                variation=Variation.objects.get(name__icontains=variation),
+                                product_variation=variation,
                             )
                             order_line_item.save()
                 except Product.DoesNotExist:
