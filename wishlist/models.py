@@ -7,8 +7,6 @@ class Wishlist(models.Model):
     """ A model to make the connection between a bookmarked product and a user """
     user = models.OneToOneField(UserProfile, null=False, blank=False, on_delete=models.CASCADE, related_name='wishlist')
 
-    
-
     def __str__(self):
         return f'Wishlist ({self.user})'
 
@@ -21,3 +19,7 @@ class WishlistItem(models.Model):
 
     def __str__(self):
         return self.product.name
+
+
+
+

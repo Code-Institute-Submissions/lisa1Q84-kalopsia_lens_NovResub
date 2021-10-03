@@ -2,128 +2,92 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="">
+{% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
+<div class="container header-container">
         <div class="row">
-            <div class="col">
-
-            </div>
+            <div class="col"></div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container bg-white">
-
-    <div class="row">
-        <div class="col">
-            <h2 class="text-center bg-white p-2 font-weight-bold text-black"> Wishlist </h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            {% if wishlist %}
-            <div class="table-responsive rounded">
-                <table class="table table table-sm bg-white">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Product Info</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Total</th>
-                      </tr>
-                    </thead>
-                    <div>
-                    {% for item in wishlist_items %}
-                    <tr>
-                        <th></th>
-                        <td class="p-3 w-25"><img class="img-fluid rounded" src="{{ item.product.image.url }}"></td>
-                        <td class="p-3 w-30">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0">${{ item.product.price }}</p>
-                            <p class="my-0">{{ item.product.description }}</p>
-                        </td>
-                        <td class="p-3 w-25">
-                            <form class="form update-form" action="{% url 'update_bag' item.item_id %}" method="POST">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn-sm btn btn-black rounded-0" 
-                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-minus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <input class="form-control qty_input" type="number"
-                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                            data-item_id="{{ item.item_id }}"
-                                            id="id_qty_{{ item.item_id }}">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm btn-black rounded-0"
-                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-plus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                            {% if item.variation %}
-                                            <input type="hidden" name="variation" value="{{ item.variation.name|lower }}">
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </form> 
-                            <a class="update-link text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-variation="{{ item.variation }}"><small>Remove</small></a>
-                        </td> 
-                        <td> <p class="my-0">${{ item.variation.price | calc_subtotal:item.quantity }}</p></td>
-                    </tr> 
-                
-                    {% endfor %}
-                    
-                    <tr>
-                        <td colspan="5" class="pt-5 text-right">
-                            <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="5" class="text-right">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                                <span class="text-uppercase">Secure Checkout</span>
-                                <span class="icon">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </a>
-                        </td>
-                    </tr>
-                </table>
+<div class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">Wishlist</h2>
+                <hr>
             </div>
-            {% else %}
-            <p> No items on your wishlist yet</p>
-            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-                <span class="icon">
-                    <i class="fas fa-chevron-left">Start Shopping</i>
-                </span>
-            </a>
-            {% endif %}
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {% if wishlist %}
+                    <div class="table-responsive rounded">
+                        <table class="table table-sm table-borderless">
+                            <thead class="text-black">
+                                <tr>
+                                    <th scope="col">Product Info</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                            </thead>
+
+                            {% for product in products%}
+                                <tr>
+                                    <td class="p-3 w-25">
+                                        {% if product.image %}
+                                        <img class="img-fluid rounded" src="{{ product.image.url }}">
+                                        {% else %}
+                                        <img class="w-100" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ product.name }}">
+                                        {% endif %}
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0"><strong>{{ product.name }}</strong></p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">${{ product.price }}</p>
+                                    </td>
+                                    <td class="py-3 w-25">
+                                        <form class="form update-form" method="POST" action="{% url 'remove_from_wishlist' product.id %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            <button class="btn btn-red rounded-0 text-uppercase mt-5"><strong><i class="fas fa-times"></i> Remove from wishlist</strong></button>
+                                        </form>
+                                        <form class="form update-form" method="POST" action="{% url 'product_detail' product.id %}">
+                                            {% csrf_token %}
+                                            <button class="btn btn-black rounded-0 text-uppercase mt-5">Add to Bag</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Keep Shopping</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="lead mb-5">Your Wishlist is empty.</p>
+                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+                {% endif %}
+            </div>
         </div>
     </div>
-
-</div>
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
-
 {% endblock %}
