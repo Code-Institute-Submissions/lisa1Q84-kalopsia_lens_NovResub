@@ -45,7 +45,6 @@
                         <td class="p-3 w-30">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0">${{ item.product.price }}</p>
-                            <p class="my-0">{{ item.product.description }}</p>
                         </td>
                         <td class="p-3 w-25">
                             <form class="form update-form" action="{% url 'update_bag' item.item_id %}" method="POST">
@@ -81,14 +80,33 @@
                             <a class="update-link text-info"><small>Update</small></a>
                             <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-variation="{{ item.variation }}"><small>Remove</small></a>
                         </td> 
-                        <td> <p class="my-0">${{ item.variation.price | calc_subtotal:item.quantity }}</p></td>
+                        <td> <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p></td>
                     </tr> 
                 
                     {% endfor %}
-                    
                     <tr>
-                        <td colspan="5" class="pt-5 text-right">
-                            <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                        <td colspan="5" class="pt-3 text-right">
+                            <h6><strong>Bag Total: €{{ bag_total|floatformat:2 }}</strong></h6>
+                            <h6><strong>Delivery:</strong></h6>
+                                <p>
+                                    {% if free_delivery_delta > 0 %}
+                                        €{{ delivery_charge|floatformat:2 }}
+                                    {% else %}
+                                        FREE
+                                    {% endif %}
+                                </p>
+                            </div>
+
+                        </td>
+                    </tr>   
+                    <tr>
+                        <td colspan="5" class="pt-5 pb-2 text-right">
+                            <h6><strong>Grand Total: €{{ bag_grand_total|floatformat:2 }}</strong></h6>
+                            {% if free_delivery_delta > 0 %}
+                            <p class="mb-1 text-info"><i class="fas fa-ghost"></i>
+                                Free delivery if you spend <strong>€{{ free_delivery_delta }}</strong> more!
+                            </p>
+                            {% endif %}
                         </td>
                     </tr>
                     <tr>

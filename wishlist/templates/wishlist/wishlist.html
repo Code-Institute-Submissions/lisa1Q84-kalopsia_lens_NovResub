@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Wishlist</h2>
+                <h2 class="logo-font text-white text-center">Wishlist</h2>
                 <hr>
             </div>
         </div>
@@ -28,9 +28,9 @@
         <div class="row">
             <div class="col">
                 {% if wishlist %}
-                    <div class="table-responsive rounded">
-                        <table class="table table-sm table-borderless">
-                            <thead class="text-black">
+                    <div class="table-responsive rounded bg-white">
+                        <table class="table table-sm table-borderless mt-2">
+                            <thead class="text-black text-center mb-4">
                                 <tr>
                                     <th scope="col">Product Info</th>
                                     <th scope="col"></th>
@@ -49,6 +49,10 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ product.name }}</strong></p>
+                                        <form class="form update-form" method="POST" action="{% url 'product_detail' product.id %}">
+                                            {% csrf_token %}
+                                            <button class="btn btn-black rounded-0 text-uppercase mt-5">Add to Bag</button>
+                                        </form>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ product.price }}</p>
@@ -57,11 +61,7 @@
                                         <form class="form update-form" method="POST" action="{% url 'remove_from_wishlist' product.id %}">
                                             {% csrf_token %}
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                            <button class="btn btn-red rounded-0 text-uppercase mt-5"><strong><i class="fas fa-times"></i> Remove from wishlist</strong></button>
-                                        </form>
-                                        <form class="form update-form" method="POST" action="{% url 'product_detail' product.id %}">
-                                            {% csrf_token %}
-                                            <button class="btn btn-black rounded-0 text-uppercase mt-5">Add to Bag</button>
+                                            <button class="btn rounded-0 text-uppercase mt-5"><strong><i class="fas fa-times"></i> Remove from wishlist</strong></button>
                                         </form>
                                     </td>
                                 </tr>

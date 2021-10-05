@@ -1,11 +1,11 @@
 
 body {
-    background: url('/media/covertest.png') no-repeat center center fixed;
-    background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Quattrocento', serif;
 }
+
+
 
 .bg-font {
     background-color: white;
@@ -20,11 +20,32 @@ html {
     height: 100%;
 }
 
+.author-photo{
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);  
+}
+
+.kalopsya-container{
+    background-image: url(/media/bookheader.png);
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 300px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  filter: invert(1);
+}
+
 .btt-link,
 .update-link,
 .remove-item {
     cursor: pointer;
 }
+
 
 
 input[name='q']::placeholder {
@@ -87,29 +108,8 @@ input[name='q']::placeholder {
 }
 
 
-/* Frame from https://codepen.io/Snugug/pen/bzRwyw */
+/* Special Header */
 
-.filmstrip {
-    --background: rgba(0, 0, 0, 0.637);
-    --size: 10px;
-    background-image:
-      linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
-      linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
-      linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
-      linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
-      linear-gradient(to bottom, transparent var(--size), var(--background) var(--size));
-    background-size: calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), 100% calc(100% - var(--size) * 3);
-    background-repeat: repeat-x;
-    background-position: 0 var(--size), top left, 0 calc(100% - var(--size)), bottom left, 0 var(--size);
-    padding: calc(var(--size) * 3) calc(var(--size) * 2.5);
-    box-sizing: border-box;
-  }
-  
-  .film-div {
-    width: 100%;
-    color: white;
-    margin-bottom: 1rem;
-  }
   
   .special-h {
     margin: 0;
@@ -192,11 +192,6 @@ input[name='q']::placeholder {
         padding-top: 164px;
     }
 
-    .card-img-top1 {
-        width: 100%;
-        height: 22vw;
-        object-fit: cover;
-    }
 }
 
 @media (max-width: 991px) {
