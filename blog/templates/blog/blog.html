@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block add_css %}
+    <link rel="stylesheet" href="">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+            <h1 class="text-center">CHRISTINE'S BLOG</h1>
+            <hr class="w-100">
+            <!-- PLACE TO CREATE BLOGPOSTS -->
+            {% if request.user.is_superuser %}
+                <!--Form-->
+                <div class="container">
+                    <div id="blog-form" class="container py-4">
+                        <h4>Post To Blog</h4>
+                        <hr>
+                        <form method="POST" action="{% url 'blog' %}" class="form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <div class="text-right">
+                                <button class="btn-black" type="submit">Post</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="container">
+            {% for post in posts %}
+                <!--Post-->
+                <div class="row text-center bg-white my-5">
+                    <!--Post Info-->
+                    <div class="col-12">
+                        <h3>{{ post.title|title }}</h3>
+                        <p class="small text-muted">{{ post.date }}</p>
+                        <hr>
+                        <p class="mb-0">{{ post.article }}</p>
+                        {% if request.user.is_superuser %}
+                            <div class="text-right mt-2">
+                                <a class="edit-btn py-6" href="{% url 'edit_post' post_id=post.id %}">
+                                    Edit
+                                </a>
+                                <form method="POST" action="{% url 'delete_post' post.id %}" class="form d-inline text-right">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="current_page" value="{{ request.path }}">
+                                    <button class="delete-btn">Delete</button>
+                                </form>
+                            </div>
+                            <hr>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock %}

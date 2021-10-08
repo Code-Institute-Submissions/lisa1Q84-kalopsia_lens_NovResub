@@ -52,6 +52,17 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+.edit-btn{
+    background: green;
+    color: white;
+}
+
+
+.delete-btn{
+    background: red;
+    color: white;
+}
+
 
 /* Allauth form formatting taken from Boutique Ado Project */
 

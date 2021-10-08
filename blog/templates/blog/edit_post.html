@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block add_css %}
+    <link rel="stylesheet" href="">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <!--Blog-->
+    <div class="container">
+    <!--Headline-->
+        <div class="page-header bg-white">
+            <h1 class="text-center">Editing Post - {{ post.title|title }}</h1>
+            <hr class="w-100">
+        </div>
+        <!--Form-->
+        <div class="container">
+            <div id="blog-form" class="container py-4">
+                <form method="POST" action="{% url 'edit_post' post_id=post.id %}" class="form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <input id="date" name="date" type="hidden" class="w-100" value="{{ post.date|date:'Y-m-d H:i:s.u' }}">
+                    <div class="text-right">
+                        <a href="{% url 'blog' %}" class="delete-btn">Cancel</a>
+                        <button class="btn-black" type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
