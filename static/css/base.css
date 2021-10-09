@@ -6,7 +6,6 @@ body {
 }
 
 
-
 .bg-font {
     background-color: white;
     padding: 1rem;
@@ -20,18 +19,20 @@ html {
     height: 100%;
 }
 
+
+
 .author-photo{
-        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        -webkit-filter: grayscale(100%); 
         filter: grayscale(100%);  
 }
 
 .kalopsya-container{
     background-image: url(/media/bookheader.png);
-    background-color: #cccccc; /* Used if the image is unavailable */
-    height: 300px; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
+    background-color: #cccccc; 
+    height: 300px; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
     
 }
 
@@ -62,6 +63,21 @@ input[name='q']::placeholder {
     background: red;
     color: white;
 }
+
+
+footer{
+    background-color: #111111;
+    color: #eeeeee;
+    height: 60px;  /* footer height */
+    padding-top: 20px;
+    display: block;
+    margin-top: 20px; /* space between content and footer */
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+  }
+
+
 
 
 /* Allauth form formatting taken from Boutique Ado Project */

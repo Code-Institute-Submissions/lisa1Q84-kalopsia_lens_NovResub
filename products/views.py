@@ -68,7 +68,8 @@ def product_detail(request, product_id):
     }
     return render(request, 'products/product_detail.html', context)
 
-# ADMIN FUNCTIONALITY 
+# ADMIN FUNCTIONALITY
+
 
 @login_required
 def add_product(request):
