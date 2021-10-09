@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-50q_q=u9n%ew+s0j0gbpgd(8)m2*o_eo=z506-l3i0^seqnm4(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lisa1q84-kalopsyabooks.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -126,12 +126,18 @@ WSGI_APPLICATION = 'kalopsia_lens.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
- }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 # DATABASES = {
 #    'default': dj_database_url.parse('postgres://gugiqfdgydqnpl:b3d996e9fb93dbce634bd263944e24c4b8a35239e95c673894408b4df1286666@ec2-54-155-208-5.eu-west-1.compute.amazonaws.com:5432/dap12q3pr2i3h8')
