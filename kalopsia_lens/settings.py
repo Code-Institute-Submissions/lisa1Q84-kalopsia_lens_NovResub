@@ -30,6 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['lisa1q84-kalopsyabooks.herokuapp.com', 'localhost']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -126,24 +127,12 @@ WSGI_APPLICATION = 'kalopsia_lens.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-
-# DATABASES = {
-#    'default': dj_database_url.parse('postgres://gugiqfdgydqnpl:b3d996e9fb93dbce634bd263944e24c4b8a35239e95c673894408b4df1286666@ec2-54-155-208-5.eu-west-1.compute.amazonaws.com:5432/dap12q3pr2i3h8')
-# }
-
-
+}
 
 
 
