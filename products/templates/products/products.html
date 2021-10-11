@@ -83,12 +83,12 @@
                                         <div class="row">
                                             <div class="col">
                                                 <p class=" mb-0 text-left">€{{ product.price }}</p>
-                                        {% if request.user.is_superuser %}
-                                            <small>
-                                                <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                                            </small>
-                                        {% endif %}
+                                            {% if request.user.is_superuser %}
+                                                <small>
+                                                    <a href="{% url 'edit_product' product.id %}" class="btn btn-primary btn-sm">Edit</a> | 
+                                                    <a onclick="deleteProducts({{ product.id }});" class="btn btn-danger btn-sm text-white" >Delete</a>
+                                                </small>
+                                            {% endif %}
                                             </div>
                                         </div>
                                     </div>
@@ -128,5 +128,16 @@
                 window.location.replace(currentUrl);
             }
         })
+    </script>
+    <script>
+        function deleteProducts(productId){
+            console.log(productId);
+            if (productId){
+            flag=confirm("Are you sure you want to delete this item?");
+                if (flag == true){
+                    window.location.href = "delete/"+productId;
+                }
+            }
+        }
     </script>
 {% endblock %}

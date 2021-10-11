@@ -47,13 +47,13 @@
                         <p class="mb-0">{{ post.article }}</p>
                         {% if request.user.is_superuser %}
                             <div class="text-right mt-2">
-                                <a class="edit-btn py-6" href="{% url 'edit_post' post_id=post.id %}">
+                                <a class="edit-btn py-6 btn btn-success" href="{% url 'edit_post' post_id=post.id %}">
                                     Edit
                                 </a>
                                 <form method="POST" action="{% url 'delete_post' post.id %}" class="form d-inline text-right">
                                     {% csrf_token %}
                                     <input type="hidden" name="current_page" value="{{ request.path }}">
-                                    <button class="delete-btn">Delete</button>
+                                    <button class="delete-btn btn btn-danger">Delete</button>
                                 </form>
                             </div>
                             <hr>

@@ -51,7 +51,7 @@
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <div class="input-group-prepend">
+                                        <div class="input-group-prepend col-12 col-md-5 col-lg-4 col-xl-3">
                                             <button class="decrement-qty btn-sm btn btn-black rounded-0" 
                                                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                 <span>
@@ -59,11 +59,11 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control qty_input" type="number"
+                                        <input class="form-control qty_input col-xl-3 col-lg-4 col-md-10 col-sm-9 col-10" type="number"
                                             name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                             data-item_id="{{ item.item_id }}"
                                             id="id_qty_{{ item.item_id }}">
-                                        <div class="input-group-append">
+                                        <div class="input-group-append col-12 col-md-2">
                                             <button class="increment-qty btn btn-sm btn-black rounded-0"
                                                 data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                 <span>
@@ -76,7 +76,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form> 
+                            </form>
                             <a class="update-link text-info"><small>Update</small></a>
                             <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-variation="{{ item.variation }}"><small>Remove</small></a>
                         </td> 
