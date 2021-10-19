@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -20,7 +20,7 @@ def view_blog(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Congrats, your Post was published!')
-            return HttpResponseRedirect('blog/blog.html')
+            return redirect('blog')
 
         # Send error maessage if the form is invalid
         else:
