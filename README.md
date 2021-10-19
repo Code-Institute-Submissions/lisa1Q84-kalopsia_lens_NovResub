@@ -211,6 +211,8 @@ Other:
 -   The website has been linked to Stripe to facilitate payments
 -   The website has been linked to a Gmail account to facilitate sending of emails on registering/placing an order
 
+
+- [Features Left to Implement](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#Features-Left-to-Implement)
 _What still should be implemented_
 
 Due to time constraints, I was not able to do half of what I wanted to do and I hope I will be able to the following features in the future:
