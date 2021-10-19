@@ -9,6 +9,10 @@ from django.utils import timezone
 from django.contrib import messages
 
 
+# The code below has been inspired by this slack thread and Chris Zielinski's suggestions : https://code-institute-room.slack.com/archives/C7HS3U3AP/p1613310583353100 and this alumins repo https://github.com/Harry-Leepz/Nourish-and-Lift/tree/main/wishlist and 
+#  https://github.com/KeisGSmit/Gymshop/tree/master/wishlist :
+
+
 @login_required
 def wishlist(request):
     """ A view to show an existing wishlist """
