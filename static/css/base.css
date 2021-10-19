@@ -73,8 +73,9 @@ footer{
     display: block;
     margin-top: 20px; /* space between content and footer */
     box-sizing: border-box;
-    position: relative;
+    position: fixed;
     width: 100%;
+    bottom: 2%;
   }
 
 
