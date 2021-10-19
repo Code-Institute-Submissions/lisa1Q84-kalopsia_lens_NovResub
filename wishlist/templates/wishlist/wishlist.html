@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col">
             <hr>
-            <h2 class="logo-font text-white text-center">Wishlist</h2>
+            <h2 class="logo-font text-center">Wishlist</h2>
             <hr>
         </div>
     </div>
@@ -55,7 +55,7 @@
                                     </form>
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">${{ product.price }}</p>
+                                    <p class="my-0">€{{ product.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
                                     <form class="form update-form" method="POST" action="{% url 'remove_from_wishlist' product.id %}">

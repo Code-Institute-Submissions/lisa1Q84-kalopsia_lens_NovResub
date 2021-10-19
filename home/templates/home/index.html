@@ -13,7 +13,8 @@
 {% block content %}
 
 <!-- Author section-->
-<div class="container-fluid header-text">
+
+<div class="container h-100">
     <section>
             <div class="row pb-2">
                 <div class="col-12 pt-4 text-center">
@@ -28,17 +29,16 @@
             </div>
     </section>
     <section>
-            <div class="row">
-                <div class="col-lg-5 sm-12 bg-black pt-2 pb-2">
+            <div class="row pb-2">
+                <div class="col-lg-5 sm-12 bg-black">
                     <img class="rounded img-fluid center-block author-photo" src="{{ MEDIA_URL }}christinegraen.jpg" alt="photo of the author" width="500" height="500">
                 </div>
-                <div class="col-lg-5 sm-12 bg-black pb-2">
-                    <h2>About the Author</h2>
-                    <p class="lead"> Christine Grän was born in Graz, lived in Berlin, Bonn, Botswana and Hong Kong and is now at home in Munich. With her heroine Anna Marx she created one of the first female detectives in German crime fiction, and the series was filmed as a twelve-part television series. Grän was awarded the Marlowe and the Ernst Hoferichter Prize. </p>
-                    <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
+                <div class="col-lg-5 sm-12 bg-black">
+                    <h4>About the Author</h4>
+                    <p> Christine Grän was born in Graz, lived in Berlin, Bonn, Botswana and Hong Kong and is now at home in Munich. With her heroine Anna Marx she created one of the first female detectives in German crime fiction, and the series was filmed as a twelve-part television series. Grän was awarded the Marlowe and the Ernst Hoferichter Prize. </p>
+                    <a href="{% url 'products' %}" class="shop-now-button btn btn rounded-0 text-uppercase py-3">Shop Now</a>
                 </div>
-            </div>
-            
+            </div>    
         </div>
     </section>
 
@@ -48,7 +48,7 @@
             <div class="row justify-content-center h-100">
                 <div class="col-lg-6 py-2 my-auto bg-white">
                     <h2>Why "Kalopsya Books"?</h2>
-                    <p class="lead">Kalopsya (From Ancient Greek καλοψία): The delusion of things being more beautiful than they are.<br>
+                    <p>Kalopsya (From Ancient Greek καλοψία): The delusion of things being more beautiful than they are.<br>
                         For me, the fascination in writing crime novels is to uncover the ugly and the dark below the surface of human existance
                         in which things are never what they initially seem to be.  
                     </p>
@@ -60,7 +60,7 @@
 <!-- Carousel section-->
 
     <section class="py-5 bg-white">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center pb-5 content">
             <div class="col-md-6">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -92,6 +92,13 @@
             </div>
         </div>
     </section>
+
+    <div class="container footer-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}

@@ -1,8 +1,21 @@
+/*----------------------Google Font---------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Quattrocento:wght@400;700&display=swap');
+
+/*--------------------- Basic Styling---------------------*/
+
+html {
+    height: 100%;
+}
+
 
 body {
-    height: calc(100vh - 164px);
-    color: #555;
+    height: 100%;
     font-family: 'Quattrocento', serif;
+    color:#000000;
+    background: #ffffff;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -11,19 +24,22 @@ body {
     padding: 1rem;
 }
 
-h1,h2,h3 {
+h1,h2,h3,h4 {
     font-family: 'Oswald', sans-serif;
 }
 
-html {
-    height: 100%;
+.content {
+flex: 1 0 auto;
 }
 
 
 
+/*--------------------- Index Page ---------------------*/
+
+
 .author-photo{
-        -webkit-filter: grayscale(100%); 
-        filter: grayscale(100%);  
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%);  
 }
 
 .kalopsya-container{
@@ -36,6 +52,9 @@ html {
     
 }
 
+/*--------------------- Carousel ---------------------*/
+
+
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
   filter: invert(1);
@@ -47,11 +66,17 @@ html {
     cursor: pointer;
 }
 
+/*--------------------- Input Field ---------------------*/
 
 
 input[name='q']::placeholder {
     color: #aab7c4;
 }
+
+
+/*--------------------- Buttons ---------------------*/
+
+
 
 .edit-btn{
     background: green;
@@ -65,23 +90,35 @@ input[name='q']::placeholder {
 }
 
 
-footer{
-    background-color: #111111;
-    color: #eeeeee;
-    height: 60px;  /* footer height */
-    padding-top: 20px;
-    display: block;
-    margin-top: 20px; /* space between content and footer */
-    box-sizing: border-box;
-    position: fixed;
-    width: 100%;
-    bottom: 2%;
+/* --------------------- Special Header --------------------- */
+
+  
+.special-h {
+    margin: 0;
+    padding: 1rem;
+    text-transform: uppercase;
   }
 
 
 
+/*--------------------- Footer ---------------------*/
 
-/* Allauth form formatting taken from Boutique Ado Project */
+
+footer{
+    /*background-color: #111111;
+    color: #eeeeee;
+    height: 60px;  /* footer height */
+    /*box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    bottom: 2%; */
+    flex-shrink: 0;
+
+  }
+
+
+
+/* --------------------- Allauth form formatting taken from Boutique Ado Project ---------------------*/
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
@@ -136,16 +173,7 @@ footer{
 }
 
 
-/* Special Header */
-
-  
-  .special-h {
-    margin: 0;
-    padding: 1rem;
-    text-transform: uppercase;
-  }
-
-/* from Bulma */
+/* --------------------- Taken from Bulma during Project Boutique Ado --------------------- */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -197,7 +225,7 @@ footer{
 }
 
 
-/* -------------------------------- Media Queries */
+/* -------------------------------- Media Queries ------------------------------ */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -227,7 +255,4 @@ footer{
         padding-top: 116px;
     }
 
-    body {
-        height: calc(100vh - 116px);
-    }
 }
