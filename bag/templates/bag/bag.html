@@ -44,7 +44,7 @@
                         <td class="p-3 w-25"><img class="img-fluid rounded" src="{{ item.product.image.url }}"></td>
                         <td class="p-3 w-30">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0">${{ item.product.price }}</p>
+                            <p class="my-0">€{{ item.product.price }}</p>
                         </td>
                         <td class="p-3 w-25">
                             <form class="form update-form" action="{% url 'update_bag' item.item_id %}" method="POST">
@@ -86,7 +86,7 @@
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-3 text-right">
-                            <h6><strong>Bag Total: €{{ bag_total|floatformat:2 }}</strong></h6>
+                            <h6><strong>Bag Total: €{{ total|floatformat:2 }}</strong></h6>
                             <h6><strong>Delivery:</strong></h6>
                                 <p>
                                     {% if free_delivery_delta > 0 %}
