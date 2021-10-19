@@ -14,12 +14,13 @@ def view_blog(request):
 
     # Submit Post
     if request.method == 'POST':
-        form = BlogForm(request.POST, request.FILES)
+        form = BlogForm(request.POST)
 
         # Save Post if form is valid
         if form.is_valid():
             form.save()
             messages.success(request, 'Congrats, your Post was published!')
+            return HttpResponseRedirect('blog/blog.html')
 
         # Send error maessage if the form is invalid
         else:
