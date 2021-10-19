@@ -94,4 +94,3 @@ def remove_from_wishlist(request, product_id):
     else:
         messages.error(request, 'Item can not be deleted from your wishlist')
         return render(request, 'home/index.html')
-

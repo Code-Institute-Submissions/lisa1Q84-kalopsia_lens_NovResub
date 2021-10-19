@@ -22,7 +22,8 @@ def add_to_bag(request, item_id):
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
         messages.success(
-                        request, f'You updated {product.name} quantity to {bag[item_id]}!')
+                        request, f'You updated {product.name} quantity \
+                             to {bag[item_id]}!')
 
     else:
         bag[item_id] = quantity
@@ -42,12 +43,14 @@ def update_bag(request, item_id):
     if quantity > 0:
         bag[item_id] = quantity
         messages.success(
-            request, f'You updated quantity of {product.name} to {bag[item_id]}!')
+            request, f'You updated quantity \
+                of {product.name} to {bag[item_id]}!')
 
     else:
         bag.pop[item_id]
         messages.success(
-            request, f'You updated quantity of {product.name} to {bag[item_id]}')
+            request, f'You updated quantity \
+                 of {product.name} to {bag[item_id]}')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
@@ -55,7 +58,7 @@ def update_bag(request, item_id):
 
 def remove_from_bag(request, item_id):
     """a view to REMOVE an item in the shopping bag"""
-    
+   
     bag = request.session.get('bag', {})
 
     try:
