@@ -22,5 +22,11 @@
    },
    "files.autoSave": "off",
    "workbench.colorTheme": "Visual Studio Light",
-   "editor.defaultFormatter": "HookyQR.beautify"
-}
+   "editor.defaultFormatter": "HookyQR.beautify",
+   "python.linting.pylintArgs": [
+     "--load-plugins=pylint_django",
+     "--load-plugins=pylint_django.checkers.migrations",
+     "--disable=no-member",
+     "--django-settings-module=kalopsia_lens.settings"
+   ]
+ }
