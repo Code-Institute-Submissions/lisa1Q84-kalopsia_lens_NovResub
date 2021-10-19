@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_list_or_404, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_list_or_404, get_object_or_404
+    )
 from .models import Product, UserProfile, Wishlist, WishlistItem
 from django.contrib.auth.decorators import login_required
 
@@ -14,7 +16,8 @@ def wishlist(request):
     user = get_object_or_404(UserProfile, user=request.user)
     wishlist = Wishlist.objects.get_or_create(user=user)
     wishlist_user = wishlist[0]
-    existingWishlist = WishlistItem.objects.filter(wishlist=wishlist_user).exists()
+    existingWishlist = WishlistItem.objects.filter(
+        wishlist=wishlist_user).exists()
 
     if existingWishlist:
         user_wishlist = get_list_or_404(WishlistItem, wishlist=wishlist_user)
@@ -45,13 +48,15 @@ def add_to_wishlist(request, product_id):
 
     product = Product.objects.get(pk=product_id)
     if request.POST:
-        existingWishlistItem = WishlistItem.objects.filter(wishlist=wishlist_user, product=product).exists()
+        existingWishlistItem = WishlistItem.objects.filter(
+            wishlist=wishlist_user, product=product).exists()
         if existingWishlistItem:
             messages.error(request, "Item already in your wishlist")
             return redirect(redirect_url)
 
         else:
-            added_item = WishlistItem(wishlist=wishlist_user, product=product, date_added=timezone.now())
+            added_item = WishlistItem(
+                wishlist=wishlist_user, product=product, date_added=timezone.now())
             added_item.save()
             messages.success(request, "Product added to your wishlist")
             return redirect(redirect_url)
@@ -73,7 +78,8 @@ def remove_from_wishlist(request, product_id):
         product = Product.objects.get(pk=product_id)
 
         # look for item in the user's wishlistItem - returns true if it exists
-        existingWishlistItem = WishlistItem.objects.filter(product=product).exists()
+        existingWishlistItem = WishlistItem.objects.filter(
+            product=product).exists()
 
         if existingWishlistItem:
             product = WishlistItem.objects.get(product=product)
@@ -82,7 +88,8 @@ def remove_from_wishlist(request, product_id):
             return redirect(redirect_url)
 
         if existingWishlistItem is None:
-            messages.error(request, "You can not delete a item that is not in your wishlist")
+            messages.error(
+                request, "You can not delete a item thats not in the wishlist")
             return redirect(redirect_url)
     else:
         messages.error(request, 'Item can not be deleted from your wishlist')
