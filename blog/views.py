@@ -9,7 +9,7 @@ from .forms import BlogForm
 
 
 def view_blog(request):
-    """ View blog page and superusers can post blog posts.
+    """ View blog page and superusers have the option to also post.
     """
 
     # Submit Post
@@ -60,7 +60,7 @@ def edit_post(request, post_id):
     if request.method == 'POST':
         form = BlogForm(request.POST, request.FILES, instance=post)
 
-        # Save Product if form is valid and redurect back to product management
+        # Save Product if form is valid and redirect back to the blog page
         if form.is_valid():
             post.title = form.cleaned_data.get('title')
             post.article = form.cleaned_data.get('article')
