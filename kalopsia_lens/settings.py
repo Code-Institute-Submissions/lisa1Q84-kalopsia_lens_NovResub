@@ -34,7 +34,6 @@ DEBUG = 'DEVELOPMENT' in os.environ
 ALLOWED_HOSTS = ['lisa1q84-kalopsyabooks.herokuapp.com', 'localhost']
 
 
-
 # Application definition
 
 INSTALLED_APPS = [

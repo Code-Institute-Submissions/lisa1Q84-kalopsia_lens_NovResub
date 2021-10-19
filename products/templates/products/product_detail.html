@@ -46,7 +46,7 @@
                                     </p>
                                     {% endif %}
                                     <p> {{ product.description }}</p>
-                                    <p>${{ product.price }}</p>
+                                    <p>€{{ product.price }}</p>
                                     {% if request.user.is_superuser %}
                                         <small class="ml-3">
                                             <a href="{% url 'edit_product' product.id %}" class="btn btn-primary btn-sm">Edit</a> | 
