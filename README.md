@@ -95,23 +95,13 @@ As the site owner:
 -   I want to be able to add/edit/delete products
 
 
-
-
-## [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#development)Development
-
-
-### [](https://github.com/LiamDHall/XRYO/blob/master/readme_documents/xryo_wireframes.pdf)
-**Wireframes**
-
-The wireframe may vary slightly from the live site as when developing the site the layout didn’t work or a better alternative made the site easier to use.
-
 ### [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#ideas)Ideas
 
-When thinking about the creation of the XRYO store I wanted to make a site where users could purchase products easily and quickly as possible. With this in mind I planned how to make the process from landing on the site to a successful checkout as easy as possible. Users should be able to leave feedback for the company on products so the ability for users to review products is a must, this will allow the company to improve products and gather market research on what our customers like and dislike.
+When creating this online book shop my goal was to enable users to buy products easily and quickly as possible. With this in mind I planned how to make the process from landing on the site to a successful checkout as easy as possible. 
 
-The brand should have the ability to inform users of news about the company and events that are going to build hype around the brand to encourage them to engage more in community events and discussions. Eventually leading to them buying more.
+There should be a wishlist option for products a user does not want to buy immediately.
 
-When users add an item to the bag they should be given an option to checkout immediately to encourage them to complete the purchase.
+The author should have the ability to inform users of news about the company and events that are going to build hype around the brand to encourage them to engage more in community events and discussions. Eventually leading to them buying more.
 
 The user should be given feedback for the action they take on the site for example trying to access urls they aren’t allowed to be viewed or reached.
 
@@ -125,9 +115,7 @@ Site admins have the ability to add, edit and delete products from the product m
 
 ### [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#adding-and-editing-product-form-validation-and-image-validation)Adding and Editing Product Form Validation and Image Validation
 
-The Adding / Editing Product Form has validation for the selection related to the product. The view that handles the form submission will check if the form inputs for the product section are valid so they can be entered into the database. If the form isn't valid then an error message is displayed to the user telling them to check the data they have entered.
-
-When uploading images the view will try to open them to check if they are in fact images and that they are of PNG or JPG image type. If the image isn't one of those types the Image record won't be created and the user will receive an error message saying the images have not been uploaded and that it is not of the correct type. If the file isn't an image at all, an error message will be received by the user telling them the file isn't a known image. If the file uploaded isn't an image, again no Image record will be created.
+The Adding / Editing Product Form has validation for the selection related to the product. The view that handles the form submission will check if the form inputs for the product section are valid so they can be entered into the database. If the form isn't valid then an error message should be displayed to the user telling them to check the data they have entered.
 
 
 ### [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#templating)Templating
@@ -166,13 +154,9 @@ If a USE_AWS variable is present in the site's environment variables then the si
 **There is a USE_AWS variable present in the environment of the live site meaning the live site is using the S3 bucket to load and store static and media files, and images will not be resized on upload**
 
 
-### [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#css-variables)CSS Variables
-
-I used a CSS Variable to set the primary colour of buttons throughout the site. I did this so if a developer at a later date wants to change the colour of all the primary buttons at once they only need to update one line of code.
-
 ## [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#features)Features
 
-### [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#live-features)Live Features
+### [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#live-features)Existing Features
 
 _Existing Features:_
 
@@ -232,24 +216,15 @@ _What still should be implemented_
 Due to time constraints, I was not able to do half of what I wanted to do and I hope I will be able to the following features in the future:
 
 -   An option to purchase a book with a custom dedication
-- More details included in homepage for example a press section
+-   A real functional product carousel
+-   More details included in homepage for example a press section
 -   More dynamic media on the homepage i.e. videos for better user experience.
 -   A contact form
-- A possibility for users to give reviews
+-   A possibility for users to give reviews
 -   More product details and the opportunity to review books for users
+-   Blog Post Comments
    
-    
 
-### [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#features-left-to-implement)Features Left to Implement
-
-The following features are suggestions to improve the site for developers to include if they wish to continue developing this project or myself at a later date.
-
--   **Rating and Review**  Allow users to rate and review the books on the book detail page.
-    
--   **Stock Control**  If this website was really put to use, the products will need to be stock controlled. Then when the stock level hits 0 the product can no longer be added to a user’s basket.
-    
--   **Allow registered users to comment on blog posts:**  Engagement would be created if users were able to comment on blog posts by the author which would lead to community growth.
-    
 
 ## [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#technologies-used)Technologies Used
 
@@ -288,11 +263,7 @@ The following features are suggestions to improve the site for developers to inc
 -   [Git](https://git-scm.com/): used for version control and to push the control to a remote repository to be stored.
     
 -   [Github](https://github.com/): used for as a repository to store the versions of the website.
-    
--   [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html): optimise the images for the web.
-    
--   [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html): create the logo for the website.
-    
+            
 -   [Google Font](https://fonts.google.com/): font for website.
     
 -   [Font Awesome](https://fontawesome.com/): styles and provides icons.
@@ -301,7 +272,6 @@ The following features are suggestions to improve the site for developers to inc
     
 -   [Google Chrome Dev Tool](https://developers.google.com/web/tools/chrome-devtools): main tool for testing. Inspecting elements and troubleshooting.
     
--   [dbdesigner](https://www.dbdesigner.net/): used to design and model the database schema
     
 
 ## [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#testing)Testing
@@ -452,19 +422,21 @@ I tested the website on various browsers/devices which were available to me.
 
 #### [](https://github.com/LiamDHall/XRYO/blob/master/README.md#device-compatibility)**Device Compatibility**
 
-I have tested a number of devices in the Google Chrome Developer Tool in the Google Dev Tool:  **Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, iPhon: 5/SE/6/7/8/6+/7+/8+/X, Ipad & Pro**
+I have tested a number of devices in the Google Chrome Developer Tool in the Google Dev Tool.
 
 The site is compatible down to devices with screens that are 319px wide.
 
 
-#### [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#browser-compatibility)**Browser Compatibility**
-
-I have tested the site in following browsers:  [Google Chrome](https://www.google.com/intl/en_uk/chrome/),  [Microsoft Edge](https://www.microsoft.com/en-us/edge),  [Firefox](https://www.mozilla.org/en-GB/firefox/new/)  and  [Opera](https://www.opera.com/).
-
-The website works the same across all the browsers.
-
 ### [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#issues-and-bugs)Issues and Bugs
 
+The Blog posts are not formatted as they should be and the entire text is cramped together. Due to time constraints I was unable to fix this.
+
+On the wishlist site, in order to add the product to the cart, the user is sent back to the product detail page. This is good if a user wants to select a certain quantity but it might be better to directly add the product to the bag instead of having this detour. 
+
+When adding a product in the admin view, any rating can be entered instead of having the form tell the user that is has to be a number below 5. Also when not adding an image there should ideally be a test image (like a placeholder) displayed instead.
+
+There is "has_variation" in the product model. But it is not relevant as I made changes to my project. 
+Due to time constraints I did not remove it because it would have meant that I have to upload all products again.
 
 
 ## [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#deployment)Deployment
