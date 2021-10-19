@@ -39,7 +39,7 @@
                 <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
             {% endif %}
         </div>
-
+    </li>
     <li class="list-inline-item">
         <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'wishlist' %}">
             <div class="text-center">
@@ -47,7 +47,6 @@
                 </div>
             </div>
         </a>
-    </li>
     </li>
     <li class="list-inline-item">
       <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">

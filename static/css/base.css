@@ -101,17 +101,10 @@ input[name='q']::placeholder {
 
 
 
-/*--------------------- Footer ---------------------*/
+/*--------------------- Footer ( learned how to implement it by looking at https://css-tricks.com/couple-takes-sticky-footer/ )---------------------*/
 
 
 footer{
-    /*background-color: #111111;
-    color: #eeeeee;
-    height: 60px;  /* footer height */
-    /*box-sizing: border-box;
-    position: fixed;
-    width: 100%;
-    bottom: 2%; */
     flex-shrink: 0;
 
   }
