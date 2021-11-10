@@ -31,7 +31,7 @@ def bag_contents(request):
         delivery_charge = 0
         free_delivery_delta = 0
 
-        grand_total = delivery_charge + total
+    grand_total = delivery_charge + total
 
     context = {
         'bag_items': bag_items,
