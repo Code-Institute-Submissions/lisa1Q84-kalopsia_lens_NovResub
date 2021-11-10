@@ -51,9 +51,6 @@ def checkout(request):
             'county': request.POST['county'],
         }
 
-        print(bag)
-        print(form_data)
-
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -104,7 +101,7 @@ def checkout(request):
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
-        total = current_bag['grand_total']
+        total = current_bag['bag_grand_total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
