@@ -12,6 +12,7 @@ class BlogPost(models.Model):
     )
 
     article = models.TextField(
+        default='article text',
         max_length=450,
         null=False,
         blank=False
