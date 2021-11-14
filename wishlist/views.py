@@ -9,8 +9,12 @@ from django.utils import timezone
 from django.contrib import messages
 
 
-# The code below has been inspired by this slack thread and Chris Zielinski's suggestions : https://code-institute-room.slack.com/archives/C7HS3U3AP/p1613310583353100 and this alumins repo https://github.com/Harry-Leepz/Nourish-and-Lift/tree/main/wishlist and 
-#  https://github.com/KeisGSmit/Gymshop/tree/master/wishlist :
+""" The code below has been inspired by this slack thread and Chris Zielinski's
+suggestions :
+https://code-institute-room.slack.com/archives/C7HS3U3AP/p1613310583353100
+and this alumins repo
+https://github.com/Harry-Leepz/Nourish-and-Lift/tree/main/wishlist
+and https://github.com/KeisGSmit/Gymshop/tree/master/wishlist """
 
 
 @login_required
@@ -60,7 +64,10 @@ def add_to_wishlist(request, product_id):
 
         else:
             added_item = WishlistItem(
-                wishlist=wishlist_user, product=product, date_added=timezone.now())
+                wishlist=wishlist_user,
+                product=product,
+                date_added=timezone.now()
+                )
             added_item.save()
             messages.success(request, "Product added to your wishlist")
             return redirect(redirect_url)

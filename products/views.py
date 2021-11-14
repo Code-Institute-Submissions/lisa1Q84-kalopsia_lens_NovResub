@@ -40,7 +40,8 @@ def all_products(request):
                 messages.error(request, "You did not enter a search query")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | \
+                Q(description__icontains=query)
             products = products.filter(queries)
 
         if 'category' in request.GET:
