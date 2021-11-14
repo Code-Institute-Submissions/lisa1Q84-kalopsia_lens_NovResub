@@ -5,8 +5,13 @@ from django.contrib.auth.decorators import login_required
 from .models import BlogPost
 from .forms import BlogForm
 
-# The code below has been inspired by this tutorial https://djangocentral.com/building-a-blog-application-with-django/, the following  alumni repos: https://github.com/sophieboyle1/stile-ms4/tree/master/blog , https://github.com/LiamDHall/XRYO/blob/master/blog/views.py
-# https://github.com/Anindita123-code/MS4-full-stack-artsea/tree/master/blog , https://github.com/feddieminas/django-blog
+"""The code below has been inspired by this tutorial
+https://djangocentral.com/building-a-blog-application-with-django/,
+the following  alumni repos:
+https://github.com/sophieboyle1/stile-ms4/tree/master/blog ,
+https://github.com/LiamDHall/XRYO/blob/master/blog/views.py,
+https://github.com/Anindita123-code/MS4-full-stack-artsea/tree/master/blog ,
+https://github.com/feddieminas/django-blog"""
 
 
 def view_blog(request):

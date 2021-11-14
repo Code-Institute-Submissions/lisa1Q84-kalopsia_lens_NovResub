@@ -58,7 +58,7 @@ def update_bag(request, item_id):
 
 def remove_from_bag(request, item_id):
     """a view to REMOVE an item in the shopping bag"""
-   
+
     bag = request.session.get('bag', {})
 
     try:
