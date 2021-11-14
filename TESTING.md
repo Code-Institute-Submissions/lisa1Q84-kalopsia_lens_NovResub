@@ -34,54 +34,72 @@ Testing client stories from UX part of README.md
 
 As a user of the site:
 
-1. I want to understand the website's purpose
+**1. I want to understand the website's purpose**
 
 	Clear mission statement on index page and introduction to the author. Functional menu to help user navigate to different parts of the website to start shopping. 
 
 ![](media/User_Stories/us1.png)
 	
-2. I want to be easily able to view a list of all books and use filters
+**2. I want to be easily able to view a list of all books and use filters**
 
 Filtering option works and allows user to filter the books by category, name and price.  Able to reset filter to see everything again. 
 
 ![](media/User_Stories/us2.png)
 
-3.  I want to be able to view specific product details
+**3.  I want to be able to view specific product details**
 
 When clicking on a product, the user gets to the 'product detail' page with the title, photo, book info.
 
 ![](media/User_Stories/us3.png)
 
-4. I want to be able to easily select a product, the quantity and add it to my shopping cart. 
+**4. I want to be able to easily select a product, the quantity and add it to my shopping cart.**
 
 On the product details page, the user has the option to select the quantity and add the product to their shopping bag.
 ![](media/User_Stories/us4.png)
 
-5. I want to be able to save my shipping information when paying to not have to re-enter all my info the next time I make a purchase. 
+**5. I want to be able to save my shipping information when paying to not have to re-enter all my info the next time I make a purchase.**
+
+![](media/User_Stories/us5.png)
 
 When paying on the checkout page, the user can tick a box to save his information. The information can then be found in the profile section of the website along with the clients order history. 
 
-6. I want to be able to edit my shipping information in my profile in case something changes. 
+**6. I want to be able to edit my shipping information in my profile in case something changes.** 
+
+![](media/User_Stories/us6.png)
 
 In the profile section, the shipping info can be edited.
 
-7. I want to receive a confirmation when adding to /updating something in my cart, to my wishlist and when making a purchase. 
+**7. I want to receive a confirmation when adding to /updating something in my cart, to my wishlist and when making a purchase.** 
+
+![](media/User_Stories/us7.png)
 
 When adding a product to the cart/ wishlist, updating the quantity, deleting it there is a little confirmation window popping up on the top-right side of the screen. 
+
+![](media/User_Stories/us8.png)
+
 After ordering the user received a email confirmation with the order number. 
 
-8. I want to be able to save the products I am interested in (but have no intention to buy just yet) for later.
+**8. I want to be able to save the products I am interested in (but have no intention to buy just yet) for later.**
 
 It is possible for users to add products from the Product Detail site to a wishlist. From the wishlist, the user can later go back to the product detail page, select the quantity and add them to the shopping bag. 
+
+![](media/User_Stories/us9.png)
+
 
 
 As the site owner:
 
-1. I want the website to provide a platform for users to purchase books.
+
+
+**1. I want the website to provide a platform for users to purchase books.**
 
 Books can be easily found and purchased on the website. The process from adding the products to the shopping bag to the checkout is simple and fast.
 
-2. I want to be able to add/edit/delete products
+**2. I want to be able to add/edit/delete products**
+
+![](media/User_Stories/us10.png)
+
+![](media/User_Stories/us11.png)
 
 The admin can edit/ delete products on the 'all products' site as well as on the 'product details' site through buttons. When clicking on 'delete' a window pops up to make sure the admin really wants to delete the product.
 On the profile -> product management site the admin can easily add products to the shop. 
