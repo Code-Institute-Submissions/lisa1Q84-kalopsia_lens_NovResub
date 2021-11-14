@@ -87,12 +87,19 @@ As a user of the site:
 -   I want to understand the website's purpose
 -   I want to be easily able to view a list of all books by category
 -   I want to be able to view specific product details
--   I want to be easily able to purchase products
+-   I want to be able to easily select a product, the quantity and add it to my shopping cart. 
+-    I want to be able to save my shipping information when paying to not have to re-enter all my info the next time I make a       purchase. 
+-   I want to be able to edit my shipping information in my profile in case something changes. 
+-   I want to receive a confirmation when adding to /updating something in my cart, to my wishlist and when making a purchase. 
+-   I want to be able to save the products I am interested in (but have no intention to buy just yet) for later.
+
+
 
 As the site owner:
 
 -   I want the website to provide a platform for users to purchase books
 -   I want to be able to add/edit/delete products
+-   I want to be able to share news/ releases with my audience on a blog and to be able to edit/delete my blog posts 
 
 
 ### [](https://github.com/lisa1Q84/kalopsia_lens/blob/main/README.md#ideas)Ideas
