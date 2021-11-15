@@ -9,13 +9,6 @@ Your can find your order information below:
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date }}
 
-Order Items:
-{% for item in order.items.all %}
-    Product: {{ item.product.name|title }} {% if item.variation %} - {{ item.variation.name|title }} {% endif %}
-    Qty: {{ item.quantity }}
-    Subtotal: €{{ item.product.price | calc_subtotal:item.quantity }}
-
-{% endfor %}
 
 Order Total: €{{ order.order_total }}
 
