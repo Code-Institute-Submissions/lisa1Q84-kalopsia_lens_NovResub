@@ -244,7 +244,9 @@ footer{
 
 }
 
-@media (max-width: 991px) {
+
+@media (max-width: 978px) {
+
     .header-container {
         padding-top: 116px;
     }
