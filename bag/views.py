@@ -47,7 +47,7 @@ def update_bag(request, item_id):
                 of {product.name} to {bag[item_id]}!')
 
     else:
-        bag.pop[item_id]
+        bag.pop(item_id)
         messages.success(
             request, f'You updated quantity \
                  of {product.name} to {bag[item_id]}')

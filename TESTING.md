@@ -145,3 +145,4 @@ I was since able to correct these and I greatly expended my testing and my user 
 **Bug report**
 
 -  While testing my site with the Google Developer Tools I came across a strange error I was not able to resolve. Sometimes when checking the site on smaller devices, a horizontal scroll bar appeared on the bottom of the page. When I tried to reload the page and later to reproduce this error, there was suddenly no scrollbar and the pages had no scrollbar problems on smaller devices. 
+- When adding a book through the product management section negative numbers can be the input. Due to time constraints I was unable to fix this.
